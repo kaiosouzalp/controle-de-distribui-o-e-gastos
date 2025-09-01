@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Meu Site com Gráficos</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin: 40px; }
+    canvas { max-width: 600px; margin: auto; }
+  </style>
+</head>
+<body>
+  <h1>Meu Gráfico Público</h1>
+  <canvas id="meuGrafico"></canvas>
+
+  <script>
+    const ctx = document.getElementById('meuGrafico');
+
+    const dados = {
+      labels: ["Janeiro", "Fevereiro", "Março", "Abril"],
+      datasets: [{
+        label: "Vendas",
+        data: [12, 19, 3, 5],
+        borderWidth: 1,
+        backgroundColor: "rgba(54, 162, 235, 0.5)"
+      }]
+    };
+
+    new Chart(ctx, {
+      type: "bar",
+      data: dados,
+      options: {
+        scales: { y: { beginAtZero: true } }
+      }
+    });
+  </script>
+</body>
+</html>
